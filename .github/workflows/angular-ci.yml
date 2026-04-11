@@ -25,3 +25,9 @@ jobs:
 
       - name: Run Tests
         run: npm run test -- --watch=false --browsers=ChromeHeadless
+      
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: angular-app
+          path: dist/
