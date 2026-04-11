@@ -30,4 +30,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: angular-app
-          path: dist/
+          path: dist/ci-cd-demo/browser
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy to S3
+        run: |
+          aws s3 sync dist/ci-cd-demo/browser/ s3://${{ secrets.S3_BUCKET }} --delete
