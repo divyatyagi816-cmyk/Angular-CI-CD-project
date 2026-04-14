@@ -7,11 +7,11 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/divyatyagi816-cmyk/Angular-CI-CD-project.git'
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         git 'https://github.com/divyatyagi816-cmyk/Angular-CI-CD-project.git'
+        //     }
+        // }
 
         stage('Install') {
             steps {
